@@ -32,7 +32,7 @@ exports.getLongurl = async (req, res) => {
     try {
         const url = await URL.findOne({ shortUrl });
         if (url) {
-            res.json({longUrl:url.longUrl});
+            return res.redirect(url.longUrl);
         } else {
             res.status(404).send('URL not found');
         }
