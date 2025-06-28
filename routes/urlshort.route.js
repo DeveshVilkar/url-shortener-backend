@@ -4,7 +4,7 @@ const { shortUrl, getLongurl } = require('../controller/url.controller.js');
 
 
 router.post("/shorturl", shortUrl);
-router.get("/getlongurl/:shortUrl", getLongurl);
+router.get("/:shortUrl", getLongurl);
 
 module.exports = router;
 

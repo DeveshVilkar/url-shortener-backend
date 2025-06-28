@@ -16,7 +16,7 @@ exports.shortUrl = async (req, res) => {
         const existing = await URL.findOne({ longUrl })
         const base_url=process.env.BASE_URL
         if (existing) {
-            return res.json({ shortUrl: `${base_url}${existing.shortUrl}` });
+            return res.json({ shortUrl: `${base_url}/api/${existing.shortUrl}` });
         }
         const shortUrl = nanoid();
         const newUrl = await URL.create({ shortUrl, longUrl })
@@ -29,7 +29,6 @@ exports.shortUrl = async (req, res) => {
 
 exports.getLongurl = async (req, res) => {
     const { shortUrl } = req.params;
-    console.log(shortUrl)
     try {
         const url = await URL.findOne({ shortUrl });
         if (url) {

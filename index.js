@@ -3,9 +3,20 @@ const cors=require('cors');
 const connectDb=require('./config/db.js')
 const app=express();
 
+const allowedOrigins =[
+    'https://url-shortener-frontend-two-alpha.vercel.app',
+    'http://localhost:4200'
+]
+
 // middleware
 app.use(cors({
-    origin: 'https://url-shortener-frontend-two-alpha.vercel.app',
+    origin: function (origin, callback) {
+        if(allowedOrigins.includes(origin)){
+            return callback(null,true);
+        }else{
+            return callback(new Error('Not allowed by cors'))
+        }
+    },
     methods: ['GET', 'POST'],
 }));
 app.use(express.json());
