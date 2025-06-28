@@ -5,7 +5,7 @@ const app=express();
 
 // middleware
 app.use(cors({
-    origin: 'https://url-shortener-frontend-two-alpha.vercel.app/',
+    origin: 'https://url-shortener-frontend-two-alpha.vercel.app',
     methods: ['GET', 'POST'],
 }));
 app.use(express.json());
