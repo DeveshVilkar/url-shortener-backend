@@ -20,7 +20,7 @@ exports.shortUrl = async (req, res) => {
         }
         const shortUrl = nanoid();
         const newUrl = await URL.create({ shortUrl, longUrl })
-        res.json({ shortUrl: `${base_url}/api/${newUrl.shortUrl}` });
+        res.json({ shortUrl: `${base_url}api/${newUrl.shortUrl}` });
     } catch (error) {
         res.status(500).json({ message: 'Server error',error });
     }
