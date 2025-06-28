@@ -4,7 +4,7 @@ const connectDb=require('./config/db.js')
 const app=express();
 
 app.use(cors({
-    origin: 'https://url-shortener-frontend-two-alpha.vercel.app/',
+    origin: 'https://url-shortener-frontend-two-alpha.vercel.app',
     methods: ['GET', 'POST'],
 }));
 app.use(express.json());
