@@ -22,7 +22,7 @@ exports.shortUrl = async (req, res) => {
         const newUrl = await URL.create({ shortUrl, longUrl })
         res.json({ shortUrl: `${base_url}${newUrl.shortUrl}` });
     } catch (error) {
-        res.status(500).json({ message: 'Server error' });
+        res.status(500).json({ message: 'Server error',error });
     }
 
 }
